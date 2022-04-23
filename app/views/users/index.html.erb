@@ -1,0 +1,51 @@
+
+<div class= "container">
+  <div class= "row">
+   <div class= "col-lg-3">
+    <h2>User info</h2>
+     <%= image_tag @user.get_profile_image(100,100) %>
+      <table class= "table">
+      <tr>
+       <th>name</th>
+       <th><%= @user.name %></th>
+      </tr>
+      <tr>
+       <th>introduction</th>
+       <th><%= @user.body %></th>
+      </tr>
+      </table>
+
+     <% if @user == current_user %>
+     <button type="button" class="btn btn-outline-secondary w-100 mt-3">
+      <%= link_to edit_user_path(@user) do %>
+      <i class="fa-solid fa-user-gear"></i></button>
+       <% end %>
+     <% end %>
+     
+     
+    </div>
+   
+
+
+  <div class= "col-lg-8 offset-lg-1">
+   <h2>Users</h2>
+    <table class= "table">
+     <thead>
+      <tr>
+       <th>image</th>
+       <th>name</th>
+       <th></th>
+      </tr>
+    </thead>
+   <tbody>
+    <% @users.each do |user| %>
+    <tr>
+      <td><%= image_tag user.get_profile_image(80,80) %></td>
+      <td><%= user.name %></td>
+      <td><%= link_to "Show",user_path(user.id) %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+</div>
