@@ -3,20 +3,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @books = @user.books
     @book = Book.new
-#わからない点！
+#わからない点！上の１行
   end
-#わからない点！
-  def create
-    @book = Book.new(book_params)
-    @books = Book.all
-    @book.user_id = current_user.id
-   if @book.save(book_params)
-     flash[:notice]="You have created book successfully."
-    redirect_to book_path(@book.id)
-   else
-    render ("books/index")
-   end
-  end
+#わからない点！new bookをuserページに置き、作成できる機能
+
 
   def edit
     @user = User.find(params[:id])
@@ -29,6 +19,7 @@ class UsersController < ApplicationController
     end
     redirect_to user_path(id: current_user.id)
   end
+  #わからない点！なぜかうまくupdateできずにそのままの状態になる
 
   def index
   @users = User.all
@@ -38,10 +29,6 @@ class UsersController < ApplicationController
   private
   def user_params
    params.require(:user).permit(:name, :profile_image, :body)
-  end
-
-  def book_params
-   params.require(:book).permit(:title, :body)
   end
 end
 
