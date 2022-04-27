@@ -1,26 +1,31 @@
 <div class= "container">
   <div class= "row">
     <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
+      
       <h1>welcome to <i class="fa-solid fa-book"></i><strong>Bookers</strong>!! </h1>
+      
        <div class="mb-3">
         <p>In <i class="fa-solid fa-book"></i> Bookers,</p>
        </div>
+      
        <div class="mb-3">
         <p>you can share and exchange your opinions , inpressions , and emotions</p>
-      </div>
-      <div class="mb-3">
+       </div>
+      
+       <div class="mb-3">
         <p>about various books!</p>
-      </div>
-      <div class="btn-wrapper">
-        <div class="btn btn-info btn-sm btn-block mb-3 w-75">
-          <%= link_to "Log in",new_user_session_path,{method: :get }%>
-        </div>
-        <div class="btn btn-success btn-sm btn-block w-75">
-          <%= link_to "Sign up",new_user_registration_path,{method: :get }%>
-        </div>
-      </div>
-    </div>
- </div>
+       </div>
+       
+       <div class="btn-wrapper mb-3">
+        <%= link_to "Log in",new_user_session_path,class: "btn btn-info btn-sm btn-block" %>
+       </div>
+      
+       <div class="btn-wrapper">
+        <%= link_to "Sign up",new_user_registration_path,class: "btn btn-success btn-sm btn-block" %>
+       </div>
+    
+     </div>
+   </div>
  </div>
 
 

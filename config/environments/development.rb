@@ -74,6 +74,10 @@ Rails.application.configure do
   config.hosts << "48a8b584e58a40d59729a6ca3e3d5aea.vfs.cloud9.us-east-1.amazonaws.com"
 
   config.active_job.queue_adapter = :inline
+
+  config.web_console.permissions = '193.119.218.83'
+  #↑この行追加してみた
+
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
 end

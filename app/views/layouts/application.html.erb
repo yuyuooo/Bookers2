@@ -19,67 +19,83 @@
        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
        </button>
-       <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav ml-auto">
-        <% if user_signed_in? %>
-        <li class="nav-link text-light text-white">
-         <%= link_to user_path(id:current_user.id) do %>
-         <i class="fa-solid fa-house-chimney"></i> Home
-         <% end %>
-       </li>
-       <li class="nav-link text-light text-white">
-         <%= link_to '/users' do %>
-         <i class="fa-solid fa-users"></i> Users
-         <% end %>
-       </li>
-       <li class="nav-link text-light text-white">
-         <%= link_to books_path do %>
-         <i class="fa-solid fa-book-open"></i> Books
-         <% end %>
-       </li>
-       <li class="nav-link text-light text-white">
-         <%= link_to destroy_user_session_path, method: :delete do %>
-         <i class="fa-solid fa-right-from-bracket"></i> Log out
-         <% end %>
-       </li>
-       <% else %>
-       <li class="nav-link text-light text-white">
-         <%= link_to root_path do %>
-         <i class="fa-solid fa-house-chimney"></i> Home
-         <% end %>
-       </li>
-       <li class="nav-link text-light" style="color: white;">
-         <%= link_to home_about_path do %>
-         <i class="fa-solid fa-link"></i> About
-         <% end %>
-       </li>
-       <li class="nav-link text-light">
-         <%= link_to new_user_registration_path do %>
-         <i class="fa-solid fa-user-plus"></i> Sign up
-         <% end %>
-       </li>
-       <li class="nav-link text-light">
-         <%= link_to new_user_session_path do %>
-         <i class="fa-solid fa-right-to-bracket"></i> Log in
-         <% end %>
-       </li>
-      <% end %>
-     </ul>
-    </div>
-    </div>
-   </nav>
- </header>
- <main class= "container">
+      
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+         <ul class="navbar-nav ml-auto">
+          
+          <% if user_signed_in? %>
+          
+           <li class="nav-link">
+            <%= link_to user_path(id:current_user.id),class: "btn btn-dark" do %>
+             <i class="fa-solid fa-house-chimney"></i> Home
+            <% end %>
+           </li>
+         
+           <li class="nav-link">
+            <%= link_to '/users',class: "btn btn-dark" do %>
+             <i class="fa-solid fa-users"></i> Users
+            <% end %>
+           </li>
+           
+           <li class="nav-link">
+            <%= link_to books_path,class: "btn btn-dark" do %>
+             <i class="fa-solid fa-book-open"></i> Books
+            <% end %>
+           </li>
+           
+           <li class="nav-link">
+            <%= link_to destroy_user_session_path, method: :delete,class: "btn btn-dark" do %>
+             <i class="fa-solid fa-right-from-bracket"></i> Log out
+            <% end %>
+          </li>
+          
+        <% else %>
+        
+          <li class="nav-link">
+           <%= link_to root_path,class: "btn btn-dark" do %>
+            <i class="fa-solid fa-house-chimney"></i> Home
+           <% end %>
+         </li>
 
-  <% if flash[:notice] %>
-    <%= flash[:notice] %>
-    <% end %>
 
-   <%= yield %>
-</main>
+         <li class="nav-link">
+          <%= link_to home_about_path,class: "btn btn-dark" do %>
+           <i class="fa-solid fa-link"></i> About
+          <% end %>
+         </li>
+       
+       
+         <li class="nav-link">
+          <%= link_to new_user_registration_path,class: "btn btn-dark" do %>
+           <i class="fa-solid fa-user-plus"></i> Sign up
+          <% end %>
+         </li>
+      
+         <li class="nav-link">
+          <%= link_to new_user_session_path,class: "btn btn-dark" do %>
+           <i class="fa-solid fa-right-to-bracket"></i> Log in
+          <% end %>
+         </li>
+         
+        <% end %>
+       </ul>
+      </div>
+     </div>
+    </nav>
+  </header>
+ 
+      <main class= "container">
+
+       <% if flash[:notice] %>
+         <%= flash[:notice] %>
+       <% end %>
+
+      <%= yield %>
+      </main>
 
    <footer>
      <div class="mx-auto mt-5" style="width: 200px;">CopyRight Infratop.inc</div>
    </footer>
+  
   </body>
 </html>
