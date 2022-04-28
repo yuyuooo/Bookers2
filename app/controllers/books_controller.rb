@@ -33,7 +33,7 @@ class BooksController < ApplicationController
   def update
     @book = Book.find(params[:id])
     if @book.update(book_params)
-        flash[:notice]
+        flash[:notice]="You have updated book successfully."
     end
     redirect_to book_path
   end
