@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  
+
   def show
     @user = User.find(params[:id])
     @books = @user.books
@@ -17,7 +17,7 @@ class UsersController < ApplicationController
       flash[:notice]="You have updated user successfully."
       redirect_to user_path(@user.id)
     else
-      render ("edit")
+      render :edit
     end
   end
   #わからない点！なぜかうまくupdateできずにそのままの状態になる
