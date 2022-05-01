@@ -20,13 +20,14 @@ class UsersController < ApplicationController
       render :edit
     end
   end
-  #わからない点！なぜかうまくupdateできずにそのままの状態になる
+
 
   def index
   @users = User.all
   @user = User.find_by(id: current_user.id)
   @book = Book.new
   end
+
 
   private
   def user_params

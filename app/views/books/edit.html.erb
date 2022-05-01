@@ -2,17 +2,24 @@
   <div class= "container">
     <div class= "row">
       <div class= "col-lg-5 mx-auto">
-       
         <h1>Editing Book</h1>
+          <% if @book.errors.any? %>
+           <%= @book.errors.count %>errors prohibited this book from being saved:
+             <ul>
+              <% @book.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+              <% end %>
+             </ul>
+          <% end %>
           <%= form_with model: @book do |f| %>
            <label for="title mb-3">Tiltle</label></br>
              <%= f.text_field :title, autofocus: true, :class=>"w-100 mb-3" %></br>
            <label for="body mt-3">Opinion</label></br>
              <%= f.text_area :body, autofocus: true, :class=>"w-100 mb-3" %></br>
-             <%= f.submit "Update book", :class=>"btn btn-success mb-3" %></br>
+             <%= f.submit "Update Book", :class=>"btn btn-success mb-3" %></br>
           <% end %>
            <%= link_to "Show",book_path(@book.id) %><span>|</span>
-           <%= link_to "Back",books_path(@book.id) %>
+           <%= link_to "Back",books_path %>
         </div>
       </div>
   </div>
