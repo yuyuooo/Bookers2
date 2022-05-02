@@ -14,21 +14,21 @@
 
        <%= image_tag @book.user.get_profile_image(100,100) %>
       <table class= "table">
-      <tr>
-       <th>name</th>
-       <th><%= @book.user.name %></th>
-      </tr>
-      <tr>
-       <th>introduction</th>
-       <th><%= @book.user.introduction %></th>
-      </tr>
+       <tr>
+        <th>name</th>
+        <th><%= @book.user.name %></th>
+       </tr>
+       <tr>
+        <th>introduction</th>
+        <th><%= @book.user.introduction %></th>
+       </tr>
       </table>
 
-    
-     　 <%= link_to edit_user_path(@user), :class=>"btn btn-outline-secondary w-100 my-3" do %>
+
+     　 <%= link_to edit_user_path(@book.user), :class=>"btn btn-outline-secondary w-100 my-3" do %>
       　<i class="fas fa-user-cog"></i></button>
        <% end %>
-     
+
 
 
 
@@ -60,8 +60,8 @@
               <td><%= link_to "Destroy",book_path, method: :delete, data: { confirm: '本当に消しますか？'} ,class: "btn btn-danger" %></td>
              <% end %>
              </tr>
-           </tbody>
-         </table>
-       </div>
+            </tbody>
+          </table>
       </div>
-     </div>
+    </div>
+ </div>
