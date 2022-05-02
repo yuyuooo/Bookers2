@@ -11,6 +11,7 @@
               <% end %>
              </ul>
           <% end %>
+          
           <%= form_with model: @book do |f| %>
            <label for="title mb-3">Tiltle</label></br>
              <%= f.text_field :title, autofocus: true, :class=>"w-100 mb-3" %></br>

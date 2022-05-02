@@ -2,7 +2,7 @@
 <div class= "container">
   <div class= "row">
    <div class= "col-md-3">
-    
+
     <h2>User info</h2>
      <%= image_tag @user.get_profile_image(100,100) %>
       <table class= "table">
@@ -16,11 +16,11 @@
       </tr>
       </table>
 
-     <% if @user == current_user %>
-      <%= link_to edit_user_path(@user), :class=>"btn btn-outline-secondary w-100 my-3" do %>
-      <i class="fas fa-user-cog"></i>
+     
+       <%= link_to edit_user_path(@user), :class=>"btn btn-outline-secondary w-100 my-3" do %>
+       <i class="fas fa-user-cog"></i>
        <% end %>
-     <% end %>
+    
 
     <h2>New book</h2>
      <% if @book.errors.any? %>
@@ -31,7 +31,7 @@
          <% end %>
        </ul>
      <% end %>
-      
+
      <%= form_with model:@book do |f| %>
        <label for="title">Tiltle</label></br>
         <%= f.text_field :title %></br>
