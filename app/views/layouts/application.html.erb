@@ -21,7 +21,7 @@
        </button>
       
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
-         <ul class="navbar-nav ml-auto">
+          <ul class="navbar-nav ml-auto">
           
           <% if user_signed_in? %>
           
@@ -84,18 +84,19 @@
     </nav>
   </header>
  
-      <main class= "container">
+  <main class= "container">
 
        <% if flash[:notice] %>
          <%= flash[:notice] %>
        <% end %>
+       
 
       <%= yield %>
-      </main>
+  </main>
 
-   <footer>
-     <div class="mx-auto mt-5" style="width: 200px;">CopyRight Infratop.inc</div>
-   </footer>
+  <footer>
+    <div class="mx-auto mt-5" style="width: 200px;">CopyRight Infratop.inc</div>
+  </footer>
   
-  </body>
+ </body>
 </html>

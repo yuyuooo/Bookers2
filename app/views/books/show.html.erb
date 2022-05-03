@@ -1,50 +1,11 @@
 
 <div class= "container">
   <div class= "row">
-     <% if @book.errors.any? %>
-      <%= @book.errors.count %>errors prohibited this book from being saved:
-       <ul>
-        <% @book.errors.full_messages.each do |message| %>
-         <li><%= message %></li>
-        <% end %>
-      </ul>
-     <% end %>
-      <div class= "col-md-3">
-       <h2>User info</h2>
-
-       <%= image_tag @book.user.get_profile_image(100,100) %>
-      <table class= "table">
-       <tr>
-        <th>name</th>
-        <th><%= @book.user.name %></th>
-       </tr>
-       <tr>
-        <th>introduction</th>
-        <th><%= @book.user.introduction %></th>
-       </tr>
-      </table>
-
-
-     　 <%= link_to edit_user_path(@book.user), :class=>"btn btn-outline-secondary w-100 my-3" do %>
-      　<i class="fas fa-user-cog"></i></button>
-       <% end %>
-
-
-
-
-      <h2>New book</h2>
-        <%= form_with model:@new_book do |f| %>
-         <label for="title">Tiltle</label></br>
-          <%= f.text_field :title %></br>
-         <label for="body">Opinion</label></br>
-          <%= f.text_area :body %></br>
-          <%= f.submit "Create Book", :class=>"btn btn-success"%>
-        <% end %>
-       </div>
-
-
-       <div class= "col-md-8 offset-md-1">
-        <h2>Book detail</h2>
+    <div class= "col-md-3">
+      <%= render'new',book: @new_book,user: @book.user %>
+    </div>
+    <div class= "col-md-8 offset-md-1">
+      <h2>Book detail</h2>
          <table class="table">
           <tbody>
            <tr>
@@ -59,9 +20,9 @@
               <td><%= link_to "Edit",edit_book_path(@book),class: "btn btn-success" %></td>
               <td><%= link_to "Destroy",book_path, method: :delete, data: { confirm: '本当に消しますか？'} ,class: "btn btn-danger" %></td>
              <% end %>
-             </tr>
-            </tbody>
-          </table>
-      </div>
-    </div>
- </div>
+            </tr>
+          </tbody>
+       </table>
+     </div>
+  </div>
+</div>
